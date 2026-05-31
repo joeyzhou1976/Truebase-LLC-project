@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; font-family: Inter, Arial, sans-serif; }
+  body { background: #f8f5ef; }
+  .canvas { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  .line {
+    background:
+      radial-gradient(circle at 72% 18%, rgba(209, 180, 137, .45), transparent 30%),
+      radial-gradient(circle at 15% 82%, rgba(255,255,255,.9), transparent 34%),
+      linear-gradient(135deg, #f7f2ea 0%, #e8ded0 52%, #fdfbf7 100%);
+  }
+  .line:before {
+    content: ""; position: absolute; inset: -40px;
+    background-image: var(--img); background-size: cover; background-position: center;
+    filter: blur(36px) saturate(.75) opacity(.2); transform: scale(1.08);
+  }
+  .line:after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(35,35,34,.52), rgba(35,35,34,.1) 48%, rgba(255,255,255,.08));
+  }
+  .line .product {
+    position: absolute; right: 8.5%; bottom: 7%; width: 58%; height: 78%;
+    object-fit: contain; filter: drop-shadow(0 34px 50px rgba(43, 36, 28, .28));
+    z-index: 2;
+  }
+  .copy { position: absolute; left: 8%; top: 15%; width: 42%; z-index: 3; color: #fff; }
+  .eyebrow { display: inline-block; padding: 9px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: rgba(22,22,20,.28); font-size: 20px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 32px 0 18px; font-size: 82px; line-height: .96; letter-spacing: 0; }
+  p { margin: 0; max-width: 620px; font-size: 28px; line-height: 1.38; color: rgba(255,255,255,.86); }
+  .brand { position: absolute; left: 8%; bottom: 10%; z-index: 3; color: #2a2219; background: #c6a77c; padding: 15px 20px; border-radius: 6px; font-weight: 900; font-size: 22px; letter-spacing: .08em; }
+  .spec { background: #fff; }
+  .spec .stage {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    background:
+      radial-gradient(ellipse at center 72%, rgba(0,0,0,.1), transparent 32%),
+      linear-gradient(#fff, #fafafa);
+  }
+  .spec .product {
+    width: 76%; height: 76%; object-fit: contain;
+    filter: brightness(1.08) contrast(1.06) drop-shadow(0 18px 30px rgba(0,0,0,.12));
+  }
+  .spec .rule { position: absolute; left: 5%; right: 5%; bottom: 6%; height: 1px; background: #eee; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const products = [{"slug":"clear-dog-keychain-front","title":"Crystal Pet Keychains","subtitle":"Light-catching remembrance charms for retail and sample displays","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215523_2_802.jpg"},{"slug":"clear-puppy-keychain","title":"Crystal Pet Keychains","subtitle":"Transparent pet figure keepsakes with metal ring hardware","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215524_3_802.jpg"},{"slug":"black-photo-memorial-frame","title":"Memorial Photo Frames","subtitle":"Classic display frames for photo, message, and private-label engraving","category":"Photo Frames","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215525_4_802.jpg"},{"slug":"black-paw-keepsake-box","title":"Keepsake Memorial Boxes","subtitle":"Premium box-style memorial presentation with photo window detailing","category":"Keepsake Boxes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215526_5_802.jpg"},{"slug":"heart-ashes-pendant","title":"Memorial Jewelry","subtitle":"Ashes jewelry and keepsake pendants for giftable remembrance lines","category":"Jewelry","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215527_6_802.jpg"},{"slug":"cat-keychain-back","title":"Pet Figure Keychains","subtitle":"Small companion-shaped keepsakes for add-on memorial programs","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215528_7_802.jpg"},{"slug":"clear-dog-keychain-side","title":"Crystal Pet Keychains","subtitle":"Compact transparent keepsakes with soft retail-friendly styling","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215529_8_802.jpg"},{"slug":"gold-ring-puppy-keychain","title":"Pet Figure Keychains","subtitle":"Clear acrylic animal charms with polished metal hardware","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215530_9_802.jpg"},{"slug":"heart-garden-memorial-stone","title":"Garden Memorial Stones","subtitle":"Freestanding heart markers for home, garden, and sympathy collections","category":"Garden Markers","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215531_10_802.jpg"},{"slug":"silver-cross-pendant","title":"Memorial Jewelry","subtitle":"Polished cross pendant with stone detail for remembrance gift sets","category":"Jewelry","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215532_11_802.jpg"},{"slug":"cat-charm-gold-cord","title":"Pet Figure Keychains","subtitle":"Lightweight cat keepsakes for customized pet memorial assortments","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215533_12_802.jpg"},{"slug":"husky-keychain-side","title":"Pet Figure Keychains","subtitle":"Character pet charms suited for breed-themed keepsake assortments","category":"Glass Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215534_13_802.jpg"},{"slug":"rectangular-memorial-box","title":"Keepsake Memorial Boxes","subtitle":"Clean box silhouette with photo window and gold tree motif","category":"Keepsake Boxes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215535_14_802.jpg"},{"slug":"black-photo-box-front","title":"Keepsake Memorial Boxes","subtitle":"Premium black memorial box for photo, token, and ashes keepsake bundles","category":"Keepsake Boxes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215536_15_802.jpg"}];
+const params = new URLSearchParams(location.search);
+const item = products.find(p => p.slug === params.get('slug')) || products[0];
+const variant = params.get('variant') || 'line';
+const app = document.getElementById('app');
+if (variant === 'spec') {
+  app.innerHTML = '<main class="canvas spec"><div class="stage"><img class="product" src="' + item.src + '"><div class="rule"></div></div></main>';
+} else {
+  app.innerHTML = '<main class="canvas line" style="--img:url(' + item.src + ')"><section class="copy"><div class="eyebrow">' + item.category + '</div><h1>' + item.title + '</h1><p>' + item.subtitle + '</p></section><img class="product" src="' + item.src + '"><div class="brand">TRUEBASE</div></main>';
+}
+</script>
+</body>
+</html>

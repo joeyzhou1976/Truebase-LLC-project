@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-26T00:30:09.316Z",
+  "categories": [
+    {
+      "key": "jewelry",
+      "title": "Ashes & Paw Print Jewelry",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215527_6_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215527_6_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215533_12_802.jpg"
+      ],
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/homepage-scene/jewelry.png",
+      "displayImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-display/jewelry.png"
+    },
+    {
+      "key": "glass",
+      "title": "Glass Art Keepsakes",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215524_3_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215523_2_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215524_3_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215528_7_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215529_8_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215531_10_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215534_13_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215535_14_802.jpg"
+      ],
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/homepage-scene/glass.png",
+      "displayImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-display/glass.png"
+    },
+    {
+      "key": "boxes",
+      "title": "Wooden Memory & Keepsake Boxes",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215536_15_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215525_4_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215526_5_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215530_9_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215536_15_802.jpg"
+      ],
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/homepage-scene/boxes.png",
+      "displayImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-display/boxes.png"
+    },
+    {
+      "key": "garden",
+      "title": "Garden Stones & Grave Markers",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Signature Ceramic Pet Urns.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Signature Ceramic Pet Urns.jpg"
+      ],
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/homepage-scene/garden.png",
+      "displayImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-display/garden.png"
+    }
+  ]
+}

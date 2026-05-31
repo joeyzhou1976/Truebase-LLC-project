@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-05-26T01:05:07.111Z",
+  "note": "Homepage images use one centered product on a uniform white background. Detail images are per-angle white-background assets with no overlapping layout baked in.",
+  "categories": [
+    {
+      "key": "ashes-paw-print-jewelry",
+      "title": "Ashes & Paw Print Jewelry",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215527_6_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215527_6_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215533_12_802.jpg"
+      ],
+      "homepageImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/ashes-paw-print-jewelry.png",
+      "detailImages": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/ashes-paw-print-jewelry-01.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/ashes-paw-print-jewelry-02.png"
+      ]
+    },
+    {
+      "key": "glass-art-keepsakes",
+      "title": "Glass Art Keepsakes",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215523_2_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215523_2_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215524_3_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215528_7_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215529_8_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215531_10_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215534_13_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215535_14_802.jpg"
+      ],
+      "homepageImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/glass-art-keepsakes.png",
+      "detailImages": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-01.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-02.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-03.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-04.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-05.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-06.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-07.png"
+      ]
+    },
+    {
+      "key": "signature-ceramic-pet-urns",
+      "title": "Signature Ceramic Pet Urns",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Signature Ceramic Pet Urns.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Signature Ceramic Pet Urns.jpg"
+      ],
+      "homepageImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/signature-ceramic-pet-urns.png",
+      "detailImages": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/signature-ceramic-pet-urns-01.png"
+      ]
+    },
+    {
+      "key": "wooden-memory-keepsake-boxes",
+      "title": "Wooden Memory & Keepsake Boxes",
+      "heroFile": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215525_4_802.jpg",
+      "files": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215525_4_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215526_5_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215530_9_802.jpg",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215536_15_802.jpg"
+      ],
+      "homepageImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/wooden-memory-keepsake-boxes.png",
+      "detailImages": [
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/wooden-memory-keepsake-boxes-01.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/wooden-memory-keepsake-boxes-02.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/wooden-memory-keepsake-boxes-03.png",
+        "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/wooden-memory-keepsake-boxes-04.png"
+      ]
+    }
+  ]
+}

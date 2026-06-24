@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}pre{white-space:pre-wrap;word-break:break-all}</style></head>
+<body><pre id="result">PENDING</pre>
+<script>
+const data = [{"key":"ashes-paw-print-jewelry","title":"Ashes & Paw Print Jewelry","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/ashes-paw-print-jewelry.png","scene":{"bg":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source-backgrounds/living-room-shelving-decor-33497534.jpg","sourceUrl":"https://www.pexels.com/photo/cozy-living-room-with-wooden-shelving-and-decor-33497534/","productX":0.56,"productY":0.58,"maxW":0.5,"maxH":0.58}},{"key":"glass-art-keepsakes","title":"Glass Art Keepsakes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/glass-art-keepsakes.png","scene":{"bg":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source-backgrounds/wooden-table-sunlight-15392676.jpg","sourceUrl":"https://www.pexels.com/photo/a-wooden-table-and-chair-in-sunlight-15392676/","productX":0.57,"productY":0.57,"maxW":0.5,"maxH":0.58}},{"key":"signature-ceramic-pet-urns","title":"Signature Ceramic Pet Urns","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/signature-ceramic-pet-urns.png","scene":{"bg":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source-backgrounds/vase-table-6801213.jpg","sourceUrl":"https://www.pexels.com/photo/vase-on-top-of-table-6801213/","productX":0.55,"productY":0.57,"maxW":0.46,"maxH":0.6}},{"key":"wooden-memory-keepsake-boxes","title":"Wooden Memory & Keepsake Boxes","src":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/wooden-memory-keepsake-boxes.png","scene":{"bg":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source-backgrounds/living-room-wooden-elements-33468053.jpg","sourceUrl":"https://www.pexels.com/photo/cozy-living-room-setup-with-wooden-elements-33468053/","productX":0.57,"productY":0.59,"maxW":0.52,"maxH":0.58}}];
+const params = new URLSearchParams(location.search);
+const item = data.find(entry => entry.key === params.get('key')) || data[0];
+const result = document.getElementById('result');
+const outW = 1400;
+const outH = 1050;
+
+function dist(a, b) {
+  const dr = a[0] - b[0], dg = a[1] - b[1], db = a[2] - b[2];
+  return Math.sqrt(dr * dr + dg * dg + db * db);
+}
+
+function removeEdgeBackground(canvas) {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const w = canvas.width, h = canvas.height;
+  const image = ctx.getImageData(0, 0, w, h);
+  const data = image.data;
+  const sample = [];
+  const marginX = Math.max(2, Math.floor(w * .06));
+  const marginY = Math.max(2, Math.floor(h * .06));
+  for (let y = 0; y < h; y += Math.max(1, Math.floor(h / 46))) {
+    for (let x = 0; x < w; x += Math.max(1, Math.floor(w / 46))) {
+      if (x < marginX || x > w - marginX || y < marginY || y > h - marginY) {
+        const i = (y * w + x) * 4;
+        sample.push([data[i], data[i + 1], data[i + 2]]);
+      }
+    }
+  }
+  const bg = sample.reduce((acc, rgb) => [acc[0] + rgb[0], acc[1] + rgb[1], acc[2] + rgb[2]], [0, 0, 0]).map(v => v / sample.length);
+  const threshold = 42;
+  const soft = 42;
+  const seen = new Uint8Array(w * h);
+  const queue = [];
+  function enqueue(x, y) {
+    if (x < 0 || y < 0 || x >= w || y >= h) return;
+    const p = y * w + x;
+    if (seen[p]) return;
+    const i = p * 4;
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    if (max < 108 || max - min > 78 || dist([r, g, b], bg) > threshold + soft) return;
+    seen[p] = 1;
+    queue.push(p);
+  }
+  for (let x = 0; x < w; x++) { enqueue(x, 0); enqueue(x, h - 1); }
+  for (let y = 0; y < h; y++) { enqueue(0, y); enqueue(w - 1, y); }
+  for (let q = 0; q < queue.length; q++) {
+    const p = queue[q];
+    const x = p % w, y = Math.floor(p / w);
+    enqueue(x + 1, y); enqueue(x - 1, y); enqueue(x, y + 1); enqueue(x, y - 1);
+  }
+  let minX = w, minY = h, maxX = -1, maxY = -1;
+  for (let p = 0; p < seen.length; p++) {
+    const i = p * 4;
+    if (seen[p]) {
+      const d = dist([data[i], data[i + 1], data[i + 2]], bg);
+      data[i + 3] = Math.max(0, Math.min(255, Math.round(255 * ((d - threshold) / soft))));
+      continue;
+    }
+    if (data[i + 3] > 0) {
+      const x = p % w, y = Math.floor(p / w);
+      minX = Math.min(minX, x); minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
+    }
+  }
+  ctx.putImageData(image, 0, 0);
+  if (maxX < minX || maxY < minY) return { canvas, bounds: { x: 0, y: 0, w, h } };
+  const pad = Math.round(Math.max(w, h) * .018);
+  return {
+    canvas,
+    bounds: {
+      x: Math.max(0, minX - pad),
+      y: Math.max(0, minY - pad),
+      w: Math.min(w - 1, maxX + pad) - Math.max(0, minX - pad) + 1,
+      h: Math.min(h - 1, maxY + pad) - Math.max(0, minY - pad) + 1,
+    }
+  };
+}
+
+function coverDraw(ctx, img, x, y, w, h, focusX = .5, focusY = .5) {
+  const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+  const sw = w / scale;
+  const sh = h / scale;
+  const sx = Math.max(0, Math.min(img.naturalWidth - sw, img.naturalWidth * focusX - sw / 2));
+  const sy = Math.max(0, Math.min(img.naturalHeight - sh, img.naturalHeight * focusY - sh / 2));
+  ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+}
+
+function drawScene(productImg, bgImg) {
+  const source = document.createElement('canvas');
+  source.width = productImg.naturalWidth;
+  source.height = productImg.naturalHeight;
+  source.getContext('2d').drawImage(productImg, 0, 0);
+  const cut = removeEdgeBackground(source);
+  const out = document.createElement('canvas');
+  out.width = outW; out.height = outH;
+  const ctx = out.getContext('2d');
+
+  ctx.save();
+  ctx.filter = 'saturate(.94) brightness(1.05)';
+  coverDraw(ctx, bgImg, 0, 0, outW, outH, .5, .56);
+  ctx.restore();
+
+  ctx.save();
+  ctx.globalAlpha = .18;
+  ctx.fillStyle = '#fff8ec';
+  ctx.fillRect(0, 0, outW, outH);
+  ctx.restore();
+
+  const vignette = ctx.createRadialGradient(outW * .52, outH * .48, outH * .12, outW * .52, outH * .50, outH * .78);
+  vignette.addColorStop(0, 'rgba(255,255,255,.10)');
+  vignette.addColorStop(.60, 'rgba(255,255,255,.05)');
+  vignette.addColorStop(1, 'rgba(48,34,22,.18)');
+  ctx.fillStyle = vignette;
+  ctx.fillRect(0, 0, outW, outH);
+
+  const b = cut.bounds;
+  const maxW = outW * item.scene.maxW;
+  const maxH = outH * item.scene.maxH;
+  const scale = Math.min(maxW / b.w, maxH / b.h);
+  const dw = b.w * scale;
+  const dh = b.h * scale;
+  const dx = outW * item.scene.productX - dw / 2;
+  const dy = outH * item.scene.productY - dh / 2;
+
+  ctx.save();
+  ctx.fillStyle = 'rgba(45,31,19,.23)';
+  ctx.filter = 'blur(20px)';
+  ctx.beginPath();
+  ctx.ellipse(dx + dw * .50, dy + dh * .93, dw * .36, dh * .075, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  const layer = document.createElement('canvas');
+  layer.width = outW;
+  layer.height = outH;
+  const lctx = layer.getContext('2d');
+  lctx.drawImage(cut.canvas, b.x, b.y, b.w, b.h, dx, dy, dw, dh);
+  lctx.globalCompositeOperation = 'destination-in';
+  const mask = lctx.createRadialGradient(
+    dx + dw * .5, dy + dh * .50, Math.min(dw, dh) * .16,
+    dx + dw * .5, dy + dh * .53, Math.max(dw, dh) * .64
+  );
+  mask.addColorStop(0, 'rgba(0,0,0,1)');
+  mask.addColorStop(.58, 'rgba(0,0,0,.99)');
+  mask.addColorStop(.82, 'rgba(0,0,0,.60)');
+  mask.addColorStop(1, 'rgba(0,0,0,0)');
+  lctx.fillStyle = mask;
+  lctx.fillRect(0, 0, outW, outH);
+
+  ctx.save();
+  ctx.shadowColor = 'rgba(43,30,19,.28)';
+  ctx.shadowBlur = 30;
+  ctx.shadowOffsetY = 24;
+  ctx.drawImage(layer, 0, 0);
+  ctx.restore();
+
+  result.textContent = 'DATAURL:' + out.toDataURL('image/png');
+}
+
+const img = new Image();
+const bg = new Image();
+let loaded = 0;
+function maybeDraw() {
+  loaded += 1;
+  if (loaded === 2) drawScene(img, bg);
+}
+img.onload = maybeDraw;
+bg.onload = maybeDraw;
+img.onerror = () => { result.textContent = 'ERROR loading ' + item.src; };
+bg.onerror = () => { result.textContent = 'ERROR loading ' + item.scene.bg; };
+img.src = item.src;
+bg.src = item.scene.bg;
+</script></body></html>

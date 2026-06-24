@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-05-26T14:50:56.162Z",
+  "note": "Pet-associated scene images for product homepage main images. Detail images are unchanged.",
+  "canvaDirection": {
+    "jobId": "45ab011d-f2ca-4e84-a088-9c1455e2634e",
+    "candidates": [
+      "https://www.canva.com/d/qKPS8g-aMOjudN9",
+      "https://www.canva.com/d/cpnipGP_ZpvsIiA",
+      "https://www.canva.com/d/PKx_5oL5WlGuTpg",
+      "https://www.canva.com/d/W1xCGp3_FS_8PVI"
+    ]
+  },
+  "categories": [
+    {
+      "key": "ashes-paw-print-jewelry",
+      "title": "Ashes & Paw Print Jewelry",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Ashes & Paw Print Jewelry/微信图片_20260525215527_6_802.jpg",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-pet/ashes-paw-print-jewelry.png"
+    },
+    {
+      "key": "glass-art-keepsakes",
+      "title": "Glass Art Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215523_2_802.jpg",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-pet/glass-art-keepsakes.png"
+    },
+    {
+      "key": "signature-ceramic-pet-urns",
+      "title": "Signature Ceramic Pet Urns",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Signature Ceramic Pet Urns.jpg",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-pet/signature-ceramic-pet-urns.png"
+    },
+    {
+      "key": "wooden-memory-keepsake-boxes",
+      "title": "Wooden Memory & Keepsake Boxes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Wooden Memory & Keepsake Boxes/微信图片_20260525215525_4_802.jpg",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-pet/wooden-memory-keepsake-boxes.png"
+    }
+  ]
+}

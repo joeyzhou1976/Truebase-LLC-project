@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-05-27T00:47:00.000Z",
+  "note": "Homepage scene images use photorealistic product-scene generation from the current white-background product references. Backgrounds are color-matched per product to avoid gray/white cutout blocks and product-background color merging. No current local pet background photos are used.",
+  "figmaFile": "https://www.figma.com/design/MILQHGzB8gVoAbsLKhhu6B",
+  "categories": [
+    {
+      "key": "ashes-paw-print-jewelry",
+      "title": "Ashes & Paw Print Jewelry",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/ashes-paw-print-jewelry.png",
+      "backgroundStrategy": "Dark charcoal velvet jewelry tray on warm walnut tabletop to contrast with silver chain and purple pendant.",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-web/ashes-paw-print-jewelry.png"
+    },
+    {
+      "key": "glass-art-keepsakes",
+      "title": "Glass Art Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/glass-art-keepsakes.png",
+      "backgroundStrategy": "Dark navy/charcoal matte stone tray to make clear glass edges, eyes, nose, and metal ring visible.",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-web/glass-art-keepsakes.png"
+    },
+    {
+      "key": "signature-ceramic-pet-urns",
+      "title": "Signature Ceramic Pet Urns",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/signature-ceramic-pet-urns.png",
+      "backgroundStrategy": "Warm pale wood console and cream wall, giving gray stone texture enough separation without a gray background.",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-web/signature-ceramic-pet-urns.png"
+    },
+    {
+      "key": "wooden-memory-keepsake-boxes",
+      "title": "Wooden Memory & Keepsake Boxes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-homepage/wooden-memory-keepsake-boxes.png",
+      "backgroundStrategy": "Light oak sideboard and neutral wall to contrast with the black rectangular keepsake box.",
+      "sceneImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-scene-web/wooden-memory-keepsake-boxes.png"
+    }
+  ]
+}

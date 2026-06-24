@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #fff; }
+  body { display: grid; place-items: center; }
+  .canvas {
+    width: 1600px;
+    height: 1200px;
+    position: relative;
+    background:
+      radial-gradient(ellipse at center 76%, rgba(0,0,0,.08), transparent 38%),
+      linear-gradient(#fff, #fafafa);
+    overflow: hidden;
+  }
+  img {
+    position: absolute;
+    object-fit: contain;
+    filter: brightness(1.06) contrast(1.04) drop-shadow(0 18px 26px rgba(0,0,0,.12));
+  }
+  .keychain { left: 70px; top: 260px; width: 470px; height: 610px; }
+  .stone { left: 500px; top: 126px; width: 610px; height: 700px; }
+  .box { right: 76px; bottom: 130px; width: 620px; height: 560px; }
+  .rule { position: absolute; left: 5%; right: 5%; bottom: 6%; height: 1px; background: #eee; }
+</style>
+</head>
+<body>
+<main class="canvas">
+  <img class="keychain" src="file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215523_2_802.jpg">
+  <img class="stone" src="file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215532_11_802.jpg">
+  <img class="box" src="file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215536_15_802.jpg">
+  <div class="rule"></div>
+</main>
+</body>
+</html>

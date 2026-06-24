@@ -1,0 +1,90 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;background:#fff}pre{white-space:pre-wrap;word-break:break-all}</style></head>
+<body><pre id="result">PENDING</pre>
+<script>
+const fixes = [{"key":"glass-art-keepsakes-02","source":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/Glass Art Keepsakes/微信图片_20260525215524_3_802.jpg","out":"/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/glass-art-keepsakes-02-fixed.png","crop":{"x":560,"y":330,"w":760,"h":720},"maxW":520,"maxH":560,"whiten":true},{"key":"signature-ceramic-pet-urns-01","source":"file:///Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/signature-ceramic-pet-urns-01.png","out":"/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-detail/signature-ceramic-pet-urns-01-fixed.png","autoCrop":true,"maxW":660,"maxH":540,"whiten":false}];
+const params = new URLSearchParams(location.search);
+const item = fixes.find(fix => fix.key === params.get('key')) || fixes[0];
+const result = document.getElementById('result');
+const outW = 1000;
+const outH = 750;
+
+function findBounds(canvas) {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const { width: w, height: h } = canvas;
+  const image = ctx.getImageData(0, 0, w, h);
+  const data = image.data;
+  let minX = w, minY = h, maxX = -1, maxY = -1;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      if (a > 20 && (max < 238 || max - min > 18)) {
+        minX = Math.min(minX, x);
+        minY = Math.min(minY, y);
+        maxX = Math.max(maxX, x);
+        maxY = Math.max(maxY, y);
+      }
+    }
+  }
+  if (maxX < minX) return { x: 0, y: 0, w, h };
+  const pad = 24;
+  return {
+    x: Math.max(0, minX - pad),
+    y: Math.max(0, minY - pad),
+    w: Math.min(w - 1, maxX + pad) - Math.max(0, minX - pad) + 1,
+    h: Math.min(h - 1, maxY + pad) - Math.max(0, minY - pad) + 1,
+  };
+}
+
+function whitenNeutralBackground(canvas) {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const image = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = image.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const blueEdge = b > r + 9 && b > g + 5;
+    const metalEdge = max - min > 34 && max < 235;
+    const darkDetail = max < 190;
+    if (!blueEdge && !metalEdge && !darkDetail && max > 150) {
+      data[i] = 255; data[i + 1] = 255; data[i + 2] = 255;
+    }
+  }
+  ctx.putImageData(image, 0, 0);
+}
+
+function render(img) {
+  const source = document.createElement('canvas');
+  source.width = img.naturalWidth;
+  source.height = img.naturalHeight;
+  const sctx = source.getContext('2d');
+  sctx.fillStyle = '#fff';
+  sctx.fillRect(0, 0, source.width, source.height);
+  sctx.drawImage(img, 0, 0);
+  if (item.whiten) whitenNeutralBackground(source);
+
+  const b = item.autoCrop ? findBounds(source) : item.crop;
+  const out = document.createElement('canvas');
+  out.width = outW;
+  out.height = outH;
+  const ctx = out.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, outW, outH);
+  const scale = Math.min(item.maxW / b.w, item.maxH / b.h);
+  const dw = b.w * scale;
+  const dh = b.h * scale;
+  const dx = (outW - dw) / 2;
+  const dy = (outH - dh) / 2;
+  ctx.drawImage(source, b.x, b.y, b.w, b.h, dx, dy, dw, dh);
+  result.textContent = 'DATAURL:' + out.toDataURL('image/png');
+}
+
+const img = new Image();
+img.onload = () => render(img);
+img.onerror = () => { result.textContent = 'ERROR loading ' + item.source; };
+img.src = item.source;
+</script></body></html>

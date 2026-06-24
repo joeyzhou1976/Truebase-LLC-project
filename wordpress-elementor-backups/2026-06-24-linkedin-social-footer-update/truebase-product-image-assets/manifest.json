@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-05-25T14:31:15.518Z",
+  "note": "Product-line images are designed hero/category replacements. Spec-white images are clean white-background product assets.",
+  "products": [
+    {
+      "file": "微信图片_20260525215523_2_802.jpg",
+      "slug": "clear-dog-keychain-front",
+      "title": "Crystal Pet Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215523_2_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/clear-dog-keychain-front.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/clear-dog-keychain-front.png"
+    },
+    {
+      "file": "微信图片_20260525215524_3_802.jpg",
+      "slug": "clear-puppy-keychain",
+      "title": "Crystal Pet Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215524_3_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/clear-puppy-keychain.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/clear-puppy-keychain.png"
+    },
+    {
+      "file": "微信图片_20260525215525_4_802.jpg",
+      "slug": "black-photo-memorial-frame",
+      "title": "Memorial Photo Frames",
+      "category": "Photo Frames",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215525_4_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/black-photo-memorial-frame.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/black-photo-memorial-frame.png"
+    },
+    {
+      "file": "微信图片_20260525215526_5_802.jpg",
+      "slug": "black-paw-keepsake-box",
+      "title": "Keepsake Memorial Boxes",
+      "category": "Keepsake Boxes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215526_5_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/black-paw-keepsake-box.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/black-paw-keepsake-box.png"
+    },
+    {
+      "file": "微信图片_20260525215527_6_802.jpg",
+      "slug": "heart-ashes-pendant",
+      "title": "Memorial Jewelry",
+      "category": "Jewelry",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215527_6_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/heart-ashes-pendant.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/heart-ashes-pendant.png"
+    },
+    {
+      "file": "微信图片_20260525215528_7_802.jpg",
+      "slug": "cat-keychain-back",
+      "title": "Pet Figure Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215528_7_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/cat-keychain-back.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/cat-keychain-back.png"
+    },
+    {
+      "file": "微信图片_20260525215529_8_802.jpg",
+      "slug": "clear-dog-keychain-side",
+      "title": "Crystal Pet Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215529_8_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/clear-dog-keychain-side.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/clear-dog-keychain-side.png"
+    },
+    {
+      "file": "微信图片_20260525215530_9_802.jpg",
+      "slug": "gold-ring-puppy-keychain",
+      "title": "Pet Figure Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215530_9_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/gold-ring-puppy-keychain.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/gold-ring-puppy-keychain.png"
+    },
+    {
+      "file": "微信图片_20260525215531_10_802.jpg",
+      "slug": "heart-garden-memorial-stone",
+      "title": "Garden Memorial Stones",
+      "category": "Garden Markers",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215531_10_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/heart-garden-memorial-stone.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/heart-garden-memorial-stone.png"
+    },
+    {
+      "file": "微信图片_20260525215532_11_802.jpg",
+      "slug": "silver-cross-pendant",
+      "title": "Memorial Jewelry",
+      "category": "Jewelry",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215532_11_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/silver-cross-pendant.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/silver-cross-pendant.png"
+    },
+    {
+      "file": "微信图片_20260525215533_12_802.jpg",
+      "slug": "cat-charm-gold-cord",
+      "title": "Pet Figure Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215533_12_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/cat-charm-gold-cord.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/cat-charm-gold-cord.png"
+    },
+    {
+      "file": "微信图片_20260525215534_13_802.jpg",
+      "slug": "husky-keychain-side",
+      "title": "Pet Figure Keychains",
+      "category": "Glass Keepsakes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215534_13_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/husky-keychain-side.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/husky-keychain-side.png"
+    },
+    {
+      "file": "微信图片_20260525215535_14_802.jpg",
+      "slug": "rectangular-memorial-box",
+      "title": "Keepsake Memorial Boxes",
+      "category": "Keepsake Boxes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215535_14_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/rectangular-memorial-box.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/rectangular-memorial-box.png"
+    },
+    {
+      "file": "微信图片_20260525215536_15_802.jpg",
+      "slug": "black-photo-box-front",
+      "title": "Keepsake Memorial Boxes",
+      "category": "Keepsake Boxes",
+      "source": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/source/微信图片_20260525215536_15_802.jpg",
+      "productLineImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/product-line/black-photo-box-front.png",
+      "specWhiteImage": "/Users/joeyzhou/Documents/New project/truebase-product-image-assets/spec-white/black-photo-box-front.png"
+    }
+  ]
+}

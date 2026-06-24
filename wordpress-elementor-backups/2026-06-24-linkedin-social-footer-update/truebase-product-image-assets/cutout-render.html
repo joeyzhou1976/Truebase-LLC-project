@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}pre{white-space:pre-wrap;word-break:break-all}</style>
+</head>
+<body><pre id="result">PENDING</pre>
+<script>
+const params = new URLSearchParams(location.search);
+const src = params.get('src');
+const mode = params.get('mode') || 'home';
+const outW = Number(params.get('w') || 1400);
+const outH = Number(params.get('h') || 1050);
+const result = document.getElementById('result');
+
+function dist(a, b) {
+  const dr = a[0] - b[0];
+  const dg = a[1] - b[1];
+  const db = a[2] - b[2];
+  return Math.sqrt(dr * dr + dg * dg + db * db);
+}
+
+function removeEdgeBackground(canvas) {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const w = canvas.width;
+  const h = canvas.height;
+  const image = ctx.getImageData(0, 0, w, h);
+  const data = image.data;
+  const sample = [];
+  const marginX = Math.max(2, Math.floor(w * .05));
+  const marginY = Math.max(2, Math.floor(h * .05));
+  for (let y = 0; y < h; y += Math.max(1, Math.floor(h / 40))) {
+    for (let x = 0; x < w; x += Math.max(1, Math.floor(w / 40))) {
+      if (x < marginX || x > w - marginX || y < marginY || y > h - marginY) {
+        const i = (y * w + x) * 4;
+        sample.push([data[i], data[i + 1], data[i + 2]]);
+      }
+    }
+  }
+  const bg = sample.reduce((acc, item) => [acc[0] + item[0], acc[1] + item[1], acc[2] + item[2]], [0, 0, 0]).map(v => v / sample.length);
+  const threshold = mode === 'home' ? 48 : 42;
+  const soft = 28;
+  const seen = new Uint8Array(w * h);
+  const queue = [];
+  function enqueue(x, y) {
+    if (x < 0 || y < 0 || x >= w || y >= h) return;
+    const p = y * w + x;
+    if (seen[p]) return;
+    const i = p * 4;
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const lightNeutral = max > 122 && (max - min) < 60;
+    if (!lightNeutral || dist([r, g, b], bg) > threshold + soft) return;
+    seen[p] = 1;
+    queue.push(p);
+  }
+  for (let x = 0; x < w; x++) { enqueue(x, 0); enqueue(x, h - 1); }
+  for (let y = 0; y < h; y++) { enqueue(0, y); enqueue(w - 1, y); }
+  for (let q = 0; q < queue.length; q++) {
+    const p = queue[q];
+    const x = p % w;
+    const y = Math.floor(p / w);
+    enqueue(x + 1, y);
+    enqueue(x - 1, y);
+    enqueue(x, y + 1);
+    enqueue(x, y - 1);
+  }
+  let minX = w, minY = h, maxX = -1, maxY = -1;
+  for (let p = 0; p < seen.length; p++) {
+    if (!seen[p]) {
+      const i = p * 4;
+      const alpha = data[i + 3];
+      if (alpha > 0) {
+        const x = p % w;
+        const y = Math.floor(p / w);
+        minX = Math.min(minX, x);
+        minY = Math.min(minY, y);
+        maxX = Math.max(maxX, x);
+        maxY = Math.max(maxY, y);
+      }
+      continue;
+    }
+    const i = p * 4;
+    const d = dist([data[i], data[i + 1], data[i + 2]], bg);
+    data[i + 3] = Math.max(0, Math.min(255, Math.round(255 * ((d - threshold) / soft))));
+  }
+  ctx.putImageData(image, 0, 0);
+  if (maxX < minX || maxY < minY) return { canvas, bounds: { x: 0, y: 0, w, h } };
+  const pad = Math.round(Math.max(w, h) * .025);
+  minX = Math.max(0, minX - pad);
+  minY = Math.max(0, minY - pad);
+  maxX = Math.min(w - 1, maxX + pad);
+  maxY = Math.min(h - 1, maxY + pad);
+  return { canvas, bounds: { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 } };
+}
+
+function finish(img) {
+  const source = document.createElement('canvas');
+  source.width = img.naturalWidth;
+  source.height = img.naturalHeight;
+  source.getContext('2d').drawImage(img, 0, 0);
+  const cut = removeEdgeBackground(source);
+  const out = document.createElement('canvas');
+  out.width = outW;
+  out.height = outH;
+  const ctx = out.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, outW, outH);
+  const b = cut.bounds;
+  const maxW = outW * (mode === 'home' ? .68 : .78);
+  const maxH = outH * (mode === 'home' ? .74 : .76);
+  const scale = Math.min(maxW / b.w, maxH / b.h);
+  const dw = b.w * scale;
+  const dh = b.h * scale;
+  const dx = (outW - dw) / 2;
+  const dy = (outH - dh) / 2 - (mode === 'home' ? outH * .02 : 0);
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,.14)';
+  ctx.shadowBlur = mode === 'home' ? 34 : 24;
+  ctx.shadowOffsetY = mode === 'home' ? 28 : 18;
+  ctx.drawImage(cut.canvas, b.x, b.y, b.w, b.h, dx, dy, dw, dh);
+  ctx.restore();
+  result.textContent = 'DATAURL:' + out.toDataURL('image/png');
+}
+
+const img = new Image();
+img.onload = () => finish(img);
+img.onerror = () => { result.textContent = 'ERROR:failed to load ' + src; };
+img.src = src;
+</script>
+</body>
+</html>
